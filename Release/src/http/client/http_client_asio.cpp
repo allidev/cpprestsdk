@@ -1595,11 +1595,11 @@ private:
             timedout
         };
 
-#if defined(ANDROID) || defined(__ANDROID__)
-        boost::chrono::microseconds m_duration;
-#else
+//#if defined(ANDROID) || defined(__ANDROID__)
+        //boost::chrono::microseconds m_duration;
+//#else
         std::chrono::microseconds m_duration;
-#endif
+//#endif
         std::atomic<timer_state> m_state;
         std::weak_ptr<asio_context> m_ctx;
         boost::asio::steady_timer m_timer;
