@@ -1,7 +1,8 @@
 Steps to build cpprestsdk for android
 
 1. create a symbolic link for boost library, currently it is as follows:
-under Build_android folder, 
+under Build_android folder, and create a symbolic link for openssl libraries.
+Currently, it is under Build_android/openssl folder.
 
 2. create a build folder under Build_android: bld-android-armv7a
 
