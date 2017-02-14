@@ -89,9 +89,10 @@ if(IOS)
   set(CMAKE_CXX_FLAGS "-fvisibility=hidden -fvisibility-inlines-hidden")
 elseif(ANDROID)
   if(ARM)
-    set(LIBCXX_STL "${ANDROID_NDK}/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/thumb/libgnustl_static.a")
+    set(LIBCXX_STL "${ANDROID_NDK}/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/thumb/libgnustl_static.a")
+  add_definitions(-D__STDC_LIMIT_MACROS -D__STDC_CONSTANT_MACROS)
   else()
-    set(LIBCXX_STL "${ANDROID_NDK}/sources/cxx-stl/gnu-libstdc++/4.8/libs/x86/libgnustl_static.a")
+    set(LIBCXX_STL "${ANDROID_NDK}/sources/cxx-stl/gnu-libstdc++/4.9/libs/x86/libgnustl_static.a")
   endif()
   # These are used in the shared library case
   set(ANDROID_STL_FLAGS
@@ -105,9 +106,9 @@ elseif(ANDROID)
     )
 
   include_directories(SYSTEM
-    "${ANDROID_NDK}/sources/cxx-stl/gnu-libstdc++/4.8/include"
-    "${ANDROID_NDK}/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include"
-    "${ANDROID_NDK}/sources/cxx-stl/gnu-libstdc++/4.8/include/backward"
+    "${ANDROID_NDK}/sources/cxx-stl/gnu-libstdc++/4.9/include"
+    "${ANDROID_NDK}/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include"
+    "${ANDROID_NDK}/sources/cxx-stl/gnu-libstdc++/4.9/include/backward"
     )
 elseif(UNIX) # This includes OSX
 elseif(WIN32)
