@@ -52,7 +52,9 @@
 
 #endif // #if !defined(__cplusplus_winrt)
 #else // LINUX or APPLE
+#ifndef ANDROID
 #define __STDC_LIMIT_MACROS
+#endif
 #include <stdint.h>
 #include <cstdint>
 #include <string>
