@@ -6,8 +6,12 @@ function(cpprest_find_boost)
   if(IOS)
     set(IOS_SOURCE_DIR "${PROJECT_SOURCE_DIR}/../Build_iOS")
     set(Boost_FOUND 1 CACHE INTERNAL "")
-    set(Boost_FRAMEWORK "-F ${IOS_SOURCE_DIR} -framework boost" CACHE INTERNAL "")
-    set(Boost_INCLUDE_DIR "$<BUILD_INTERFACE:${IOS_SOURCE_DIR}/boost.framework/Headers>" CACHE INTERNAL "")
+    #set(Boost_FRAMEWORK "-F ${IOS_SOURCE_DIR} -framework boost" CACHE INTERNAL "")
+    #set(Boost_INCLUDE_DIR "$<BUILD_INTERFACE:${IOS_SOURCE_DIR}/boost.framework/Headers>" 
+    #CACHE INTERNAL "")
+    # create a boost folder and a symbolic link to boost include folder
+    # under IOS_SOURCE_DIR
+    set(Boost_INCLUDE_DIR "$<BUILD_INTERFACE:${IOS_SOURCE_DIR}/boost/include>" CACHE INTERNAL "")
   elseif(ANDROID)
     set(Boost_COMPILER "-clang")
     if(ARM)
